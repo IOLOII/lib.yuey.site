@@ -1,0 +1,69 @@
+<!-- <i-grid>
+    <i-row>
+        <i-grid-item>
+            <i-grid-icon>
+                <i-icon size="24" type="collection" />
+                <i-grid-label>图书馆简介</i-grid-label>
+            </i-grid-icon>
+        </i-grid-item>
+        <i-grid-item>
+            <i-grid-icon>
+                <i-icon size="24" type="computer" />
+                <i-grid-label>借阅规则</i-grid-label>
+            </i-grid-icon>
+        </i-grid-item>
+        <i-grid-item>
+            <i-grid-icon>
+                <i-icon size="24" type="coupons" />
+                <i-grid-label>图书检索方法</i-grid-label>
+            </i-grid-icon>
+        </i-grid-item>
+    </i-row>
+</i-grid>
+
+<view>
+  <view class='menu1'style=''> test</view>
+</view> -->
+
+<!-- <i-icon type="activity" size="28" color="#fff" /> -->
+<!-- <i-button type='primary' open-type="getUserInfo">getUserInfo</i-button> -->
+
+
+
+<!-- <i-load-more tip="暂无数据" loading="{{ false }}" /> -->
+<!-- <i-load-more loading="{{ false }}" /> -->
+<view style='width:100%'>
+
+
+<block  wx:for="{{menu}}" style="width:100%">
+  <y-view yview_tx="{{item.catalago}}" yicon_type="{{item.icon}}" yicon_size='24px' y_url="{{item.url}}"></y-view>
+</block >
+</view>
+
+<!-- <y-view yview_tx='图书馆简介' yicon_type='warn' yicon_size='24px' y_url='../index/index'></y-view>
+<y-view yview_tx='借阅规则' yicon_type='success' yicon_size='24px'  y_url='../index/index'></y-view>
+<y-view yview_tx='图书检索' yicon_type='warn' y_url='../index/index'></y-view>
+<y-view yview_tx='图书续借' yicon_type='warn' yicon_size='24px'  y_url='../index/index'></y-view>
+<y-view yview_tx='随书光盘下载方法' yicon_type='warn' yicon_size='24px' y_url='../index/index'></y-view>
+<y-view yview_tx='随书光盘下载方法' yicon_type='warn' yicon_size='24px' y_url='../index/index'></y-view> -->
+
+<!-- <y-view yview_tx='图书馆简介' yicon_type='warn' yicon_size='24px' y_url='../index/index'></y-view>
+<br /> -->
+<!-- <i-load-more tip="暂无数据" /> -->
+
+
+<button bindtap='click' style='margin:0 30rpx 0'>test</button>
+<!-- <web-view src='http://localhost:8080/yueysite/testPage.site'>跳转</web-view> -->
+
+<!-- <i-card title="卡片标题" extra="额外内容" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
+    <view slot="content">内容不错</view>
+    <view slot="footer">尾部内容</view>
+</i-card> -->
+
+<y-article y_title1="title" y_title2="titletitletitletitletitle" txt="文章" article="{{tx}}">
+
+</y-article>
+<!-- <y-article y_title1="title1" txt="{{tx}}">
+
+</y-article> -->
+<!-- <rich-text><p>这里是一个<br />段落</p></rich-text> -->

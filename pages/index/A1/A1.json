@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "y-article": "../../../Component/article/article"
+  }
+}

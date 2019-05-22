@@ -1,0 +1,29 @@
+/* Component/article/article.wxss */
+.container{
+  margin: auto 30rpx 0;
+  /* width: 720rpx; */
+  /* border: 1px red solid; */
+  border-radius: 5px;
+  /* height: 100px; */
+  padding: 5px;
+}
+.title1{
+  color: rgb(161, 161, 161);         
+  font-size: 0.8em;
+  display: block;
+  /* text-indent:2em; */
+  margin-bottom: 1px;
+}
+.title2{
+/* text-indent:2em; */
+
+  font-size: 1.3em;
+  display: block;
+  margin-bottom: 1px;
+}
+.txt1{
+  /* font-size: 14px */
+  /* padding-left:0rpx;0 */
+  /* text-indent:2em; */
+
+}

@@ -1,0 +1,3 @@
+<i-button type='primary' bind:click='login'>Login</i-button>
+<i-button type='error' bind:click='userLogin'>userLogin</i-button>
+<i-button type='primary' bind:click='choose'>userLogin</i-button>
