@@ -19,16 +19,16 @@
   "tabBar": {
     "list": [{
       "pagePath": "pages/cover/cover",
-      "text": "text"
+      "text": "图书"
 
     },{
       "pagePath": "pages/logs/logs",
-      "text": "text"
+      "text": "test"
 
     },
     {
       "pagePath": "pages/login/login",
-      "text": "login"
+      "text": "登录"
     }]
   }
 }

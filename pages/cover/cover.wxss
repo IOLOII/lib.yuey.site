@@ -11,3 +11,6 @@
   border-right:1rpx solid #e9eaec;
   border-bottom:1rpx solid #e9eaec
 }
+button{
+  margin: 0 30rpx 30rpx;
+}

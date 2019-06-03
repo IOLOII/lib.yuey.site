@@ -1,5 +1,5 @@
 /* Component/article/article.wxss */
-.container{
+.cont{
   margin: auto 30rpx 0;
   /* width: 720rpx; */
   /* border: 1px red solid; */

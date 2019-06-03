@@ -52,7 +52,7 @@
 <!-- <i-load-more tip="暂无数据" /> -->
 
 
-<button bindtap='click' style='margin:0 30rpx 0'>test</button>
+<button bindtap='click'>test</button>
 <!-- <web-view src='http://localhost:8080/yueysite/testPage.site'>跳转</web-view> -->
 
 <!-- <i-card title="卡片标题" extra="额外内容" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
@@ -60,10 +60,7 @@
     <view slot="footer">尾部内容</view>
 </i-card> -->
 
-<y-article y_title1="title" y_title2="titletitletitletitletitle" txt="文章" article="{{tx}}">
+<button bindtap='getLocation'>获取当前定位</button>
 
-</y-article>
-<!-- <y-article y_title1="title1" txt="{{tx}}">
-
-</y-article> -->
-<!-- <rich-text><p>这里是一个<br />段落</p></rich-text> -->
+<button bindtap='click2'>测试地理栏杆</button>
+<button bindtap='click3'>打卡定位</button>

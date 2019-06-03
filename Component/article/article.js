@@ -23,8 +23,8 @@ Component({
       value: "这里显示文本内容"
     },
     article:{
-      type: Array,
-      value: []
+      type: String,
+      value: ''
     }
   },
   methods: {

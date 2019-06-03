@@ -8,13 +8,25 @@ Page({
    */
   data: {
     menu: [],
-    tx: ["广州番禺职业技术学院图书馆位于风景秀丽的校园大门正前方,始建于1995年。在番禺区政府和港澳同胞的热情支持下,初建馆舍面积1万多平方米，楼高五层；2010年图书馆开始扩建，扩建后图书馆总面积达到3.07万多平方米，楼高六层。本馆除建有5个社会科学书库和1个自然科学书库外，还建有拥有200台电脑的多媒体电子阅览室1个，与外语外贸学院共建的外语多功能阅览室1个，同时，还建有中文报刊阅览室、工具书与过刊阅览室各1个和有900个座位的自修室1个，全馆阅览自修座位总数达4300多个。",
-      "本馆十分重视文献资源建设，除保证纸质图书建设外，电子资源也逐渐形成了拥有中外电子期刊、博硕论文、电子图书、专题数据库和特色数据库等多形式多类别的电子资源文献体系。截止到2018年8月,馆藏纸质图书123万余册、专业期刊约870种；数字资源量约20550GB，其中电子图书58万余册、电子学术期刊8360余种。", "本馆积极采用现代化技术手段，全面实行信息化管理。采用ILAS自动化集成系统，进行采访、编目、流通、检索等全过程自动化管理；采用先进的图书监测系统，实现流通、阅览开放式管理。文学书库设有RFID读者自助借还系统；馆内设有触摸屏、电子公告屏、声视设备接口等公共服务设施；书目数据库和读者数据库采取OPAC“联机公共目录查询系统”查询，还建有图书馆微信平台和馆藏手机查询定位系统，使得检索快捷便利，极大地方便了读者了解图书馆信息、查询馆藏资源和借还图书。本馆网络信息资源实现24小时全天候开放，我校师生在校内外均可访问、检索、使用馆藏电子资源。 ",
-      "本馆设有办公室、流通部、信息技术服务部、采编部和信息咨询部5个部门。除开展常规的图书借阅服务和图书资源建设外，还开展了个性化的图书情报专题服务，为读者提供科技查新、查收查引、专业咨询、文献传递、课题信息情报检索等服务；同时，建立了专业馆员制度，每个二级学院和部分职能部门都有对应的专业馆员，帮助学校教职工充分利用图书馆文献信息资源，为教学和科研提供深层次服务。通过每年举办读书月系列活动，定期组织好书推荐和指导青山湖读书协会等多种方式，将图书馆的读者导读和阅读推广工作推向深入，营造了良好的读书氛围。"],
-      html:[],
-    tx2: '<div class="div_class" style="line-height: 60px; color: red;">Hello&nbsp;World!</div>',
+    tx: '<div class="div_class" style="line-height: 60px; color: red;">Hello&nbsp;World!</div>',
+    conttxt: { 
+      0:"test1",
+      1:"test2",
+      2:"test3",
+      3:"test4"
+      },
+    locs:"data中的locs",
   },
 
+/**
+ * onload时请求得到一级菜单栏
+ * for (var i = 0; i <= res.data.length - 1; i++) {
+          let menua = "menu[" + i + "]";
+          that.setData({
+            [menua]: res.data[i]
+          })
+        };
+ */
   onLoad: function () {
     var that = this;
     let array = this.data.array;
@@ -40,17 +52,15 @@ Page({
       complete: function (res) { },
     })
   },
+
+  /**
+   * 想要实现请求后台，获取后台的HTML代码后渲染到rich-txt中，可是赋值出现错误
+   */
   click : function(){
-    // wx.navigateTo({
-    //   url: 'https://localhost:8080/yueysite/testPage.site',
-    //   success: function(res) {},
-    //   fail: function(res) {},
-    //   complete: function(res) {},
-    // })
+
     var that = this;
-    let tx2 = this.data.tx2;
-    // console.log("console.log(html):" + html)
-    // Array 
+    var tx2 = this.data.tx2;
+    var tx = this.data.tx;
     wx.request({
       url: 'http://localhost:8080/yueysite/testPage.site',
       data: '',
@@ -59,13 +69,188 @@ Page({
       dataType: 'json',
       responseType: 'text',
       success: function(res) {
-        // console.log("console.log(html):"+html)
-        console.log(res.data)
-        that.setData({
-          tx2:res.data
-        })
-        // console.log("console.log(html):" + tx2)
         
+        console.log("返回结果"+"\n"+res.data)
+        var reshtml = JSON.stringify(res.data)
+        console.log("reshtml" + "\n" +reshtml)
+        console.log("tx" + "\n" + tx)
+        that.setData({
+          tx: "'" + reshtml + "'"/*这里有问题，无法赋值给rich-text*/
+        })
+        console.log("tx" + "\n" +tx);
+        
+      },
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  },
+  /**
+   * 获取定位信息
+   * 返回 latitude ：纬度，范围为 -90~90，负数表示南纬
+   *      longitude ：经度，范围为 -180~180，负数表示西经
+   *      speed ：速度，单位 m/s
+   *      accuracy ：位置的精确度
+   *      altitude ：高度，单位 m
+   *      verticalAccuracy ：垂直精度，单位 m（Android 无法获取，返回 0）
+   *      horizontalAccuracy ：水平精度，单位 m
+   */
+  getLocation:function(){
+    var that = this;
+    // console.log(this.data.conttxt[1])
+    var loc = [];
+    var locs = this.data.locs;
+    wx.getLocation({
+      type: 'wgs84',
+      altitude: true,
+      success: function(res) {
+        loc.push(res.longitude);
+        loc.push(res.latitude);
+        locs = loc.toString();
+        locs = locs +",1559577106"
+        that.setData({
+          locs:locs
+        })
+        console.log(locs)
+        // console.log(that.data.locs)
+        console.log(this)
+        wx.showModal({
+          title: 'GPS定位提醒',
+          content: "当前经度：" + res.longitude + "\n" + "当前纬度" + res.latitude,
+          showCancel: true,
+          cancelText: '取消',
+          cancelColor: '',
+          confirmText: '确认眼神',
+          confirmColor: '',
+          success: function(res) {
+            // if (res.confirm) {
+            //   console.log('用户点击确定')
+            // } else if (res.cancel) {
+            //   console.log('用户点击取消')
+            // }
+          },
+          fail: function(res) {},
+          complete: function(res) {},
+        })
+      },
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  },
+
+  /**
+   * 创建地理栏杆
+   */
+  click2:function(){
+    
+    wx.request({
+      url: 'https://restapi.amap.com/v4/geofence/meta?key=5cb4f298bd87f8a5b9da3f6f80a96a9f',
+      data: {
+        "name": "测试围栏名称2",
+        "center": "113.29976654052734,22.9090576171875",
+        "radius": "2",
+        "enable": "true",
+        "valid_time": "2019-06-04",
+        "repeat": "Mon,Tues,Wed,Thur,Fri,Sat,Sun",
+        "desc": "测试围栏描述2",
+        "alert_condition": "enter;leave"
+      },
+      header: {},
+      method: 'POST',
+      dataType: 'json',
+      responseType: 'text',
+      success: function (res) { console.log(res)},
+      fail: function (res) { console.log(res)},
+      complete: function (res) {},
+    })
+  },
+
+  /**
+   * 取得定位打卡：先定位 赋值loc
+   */
+  click3:function(){
+    var that = this;
+    var loc =  this.data.locs ;
+    // var loc = "113.305238,22.906253,1559577106";
+    console.log(this.data.locs);
+    console.log(loc);
+    wx.request({
+      url: 'https://restapi.amap.com/v4/geofence/status',
+      data: {
+        "key":"5cb4f298bd87f8a5b9da3f6f80a96a9f",
+         "diu" : 863081030701227,
+        "locations": loc
+      },
+      header: {},
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function(res) {
+        console.log("locs:"+that.data.locs)
+        console.log(res);
+        
+        if (res.data.errcode == 0){
+          if (res.data.data.fencing_event_list.length !== 0) {
+            console.log("打卡进入判断")
+            if (res.data.data.fencing_event_list["0"].client_status == "in") {
+              console.log("打卡成功")
+              wx.showModal({
+                title: '提示',
+                content: '定位打卡成功',
+                showCancel: false,
+                cancelText: '',
+                cancelColor: '',
+                confirmText: '确认眼神',
+                confirmColor: '',
+                success: function (res) { },
+                fail: function (res) { },
+                complete: function (res) { },
+              })
+            } else {
+              wx.showModal({
+                title: '提示',
+                content: '定位打卡失败请重新定位',
+                showCancel: false,
+                cancelText: '',
+                cancelColor: '',
+                confirmText: '确认眼神',
+                confirmColor: '',
+                success: function (res) { },
+                fail: function (res) { },
+                complete: function (res) { },
+              })
+            }
+          } else {
+            wx.showModal({
+              title: '提示',
+              content: '定位打卡失败，请到指定打开地点打卡',
+              showCancel: false,
+              cancelText: '',
+              cancelColor: '',
+              confirmText: '确认眼神',
+              confirmColor: '',
+              success: function (res) { },
+              fail: function (res) { },
+              complete: function (res) { },
+            })
+          }
+        }else{
+          wx.showModal({
+            title: '提示',
+            content: '参数非法！请先取得定位值',
+            showCancel: false,
+            cancelText: '',
+            cancelColor: '',
+            confirmText: '确认眼神',
+            confirmColor: '',
+            success: function (res) { },
+            fail: function (res) { },
+            complete: function (res) { },
+          })
+        }
+
+        console.log()
+        // console.log(res.data.data.fencing_event_list["0"].fence_info.fence_name)
+        // console.log(res.data.data.fencing_event_list["0"].enter_time)
       },
       fail: function(res) {},
       complete: function(res) {},

@@ -1,6 +1,6 @@
 <!--Component/article/article.wxml-->
 
-<view class='container'>
+<view class='cont'>
   <title class='title1'>{{y_title1}}</title>
   <title class='title2'>{{y_title2}}</title>
   <text class='txt1'>{{txt}}</text>
