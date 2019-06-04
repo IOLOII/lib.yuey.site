@@ -64,3 +64,4 @@
 
 <button bindtap='click2'>测试地理栏杆</button>
 <button bindtap='click3'>打卡定位</button>
+<button bindtap='click4'>打卡地图</button>

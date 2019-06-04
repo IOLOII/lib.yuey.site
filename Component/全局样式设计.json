@@ -1,5 +1,7 @@
 
 {
   "页面边距":["32px","30px","24px","20px","30rpx"],
-  "button边距":"30rpx"
+  "button边距":"30rpx" ,
+  "border-radius": "5px",
+
 }
