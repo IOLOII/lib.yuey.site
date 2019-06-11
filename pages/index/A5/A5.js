@@ -202,5 +202,30 @@ Page({
       fail: function(res) {},
       complete: function(res) {},
     })
+  },
+
+  click6:function(){
+wx.navigateTo({
+  url: '../A5-locationMap/index',
+  success: function(res) {},
+  fail: function(res) {},
+  complete: function(res) {},
+})
+  },
+
+  fanhui:function(){
+    wx.navigateBack({
+      delta: 1,
+    })
   }
+
+
+
+
+
+
+
+
+
+
 })

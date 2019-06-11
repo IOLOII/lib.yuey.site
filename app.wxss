@@ -1,4 +1,8 @@
 /**app.wxss**/
+page{
+  /* margin:0 30rpx 0; */
+  /* width:690rpx */
+}
 /* .container {
   height: 100%;
   display: flex;
@@ -8,4 +12,3 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 }  */
-

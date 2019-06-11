@@ -1,3 +1,6 @@
-<view class="map_container">
-  <!--定义页面结构，可以使用地图组件也能使用其他组件 -->
+<!--logs.wxml-->
+<view class="container log-list">
+  <block wx:for="{{logs}}" wx:for-item="log">
+    <text class="log-item">{{index + 1}}. {{log}}</text>
+  </block>
 </view>

@@ -1,35 +1,26 @@
 {
   "pages": [
-    
-    "pages/cover/cover",
-    "pages/login/login",
     "pages/index/index",
-    "pages/index/A1/A1",
+    "pages/logs/logs",
+    "pages/login/login",
+    "pages/loginout/loginout",
     "pages/index/A5/A5",
-
-    "pages/logs/logs"
-    
+    "pages/index/A1/A1",
+    "pages/index/A5-locationMap/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "navigationStyle": "custom",
+ 
+    "backgroundColor":"#fff",
+    
+    "navigationBarTitleText": "ONElibrary",
+    "navigationBarTextStyle": "white"
   },
   "sitemapLocation": "sitemap.json",
-  "tabBar": {
-    "list": [{
-      "pagePath": "pages/cover/cover",
-      "text": "图书"
-
-    },{
-      "pagePath": "pages/logs/logs",
-      "text": "test"
-
-    },
-    {
-      "pagePath": "pages/login/login",
-      "text": "登录"
-    }]
+  "permission": {
+    "scope.userLocation": {
+      "desc": "请提供位置信息用于参考"
+    }
   }
 }

@@ -1,21 +1,104 @@
 /**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+
+page {
+  /* margin: 0 30rpx 30RPX; *//* border: solid RED 0.1PX; *//* background: #f3f6ff; *//* width: 66.6666666666%; *//* text-align: center; */
+  /* margin-left: 0 30rpx 0;
+  width: 690rpx;
+  background-image: '../../image/blue.jpg'; */
 }
 
 .userinfo-avatar {
   width: 128rpx;
   height: 128rpx;
-  margin: 20rpx;
+  margin: 60rpx 70rpx 0 40rpx;
   border-radius: 50%;
+  float: left;
+  /* border: solid RED 0.1PX; */
+  box-shadow: 0rpx 5rpx 2.5rpx 2rpx #aaa;
 }
 
 .userinfo-nickname {
-  color: #aaa;
+  /* font-size: 0.8em; */
+  color: rgb(7, 7, 7);
+  display: table-header-group;
+  margin-top: 0px;
+  font-size: 50rpx;
+  /* border: solid RED 0.1PX; */
+  text-align:center;
+
 }
 
-.usermotto {
-  margin-top: 200px;
+.user-no {
+  width:158rpx;
+  font-size: 28rpx;
+  color: rgb(116, 112, 112);
+  display: table-footer-group;
+  /* border: solid RED 0.1PX; */
+  margin-top: 0px;
+  /* position:absolute;
+  left:188rpx;
+  top:80rpx; */
 }
+
+.card {
+  /* position: absolute; */
+  /* width: 690rpx; */
+  width: 644rpx;
+/* z-index: 2; */
+  background: white;
+  border-radius:20rpx; 
+  height: 249rpx;
+  /*button 在一起 135rpx*/
+box-shadow: 0rpx 2rpx 3rpx 3rpx rgb(168, 221, 186);
+  margin: 40% 0 20rpx 26.25rpx;
+}
+
+.user_block {
+  /* line-height:0; */
+  /* height: 300rpx; */
+  /* width: 690rpx;  */
+  /*宽度*/
+  /* position: absolute; */
+  /* margin-top: -55rpx; */
+  /* margin-left: 70rpx; *//* border: solid blue 0.1PX; *//* background: blue; *//* background-image:url('../../images/blue.jpg'); */
+  /* border-radius: 15rpx; */
+}
+
+
+.user_view view {
+  width: 158rpx;
+  height: 135rpx;
+  display: inline-block;
+  /* margin: 0 20rpx 0 70rpx; */
+  /* margin-bottom: 70rpx; */
+  /* border: solid RED 0.1PX; */
+ 
+  /* float: none; */
+    margin: 36rpx 0 0 20rpx;
+}
+
+.user_view view button {
+  display: inline-block;
+  width: 160rpx;
+  height: 60rpx;
+  /* line-height: 2.3; */
+  font-size: 25rpx;
+  /* padding: 0 1.34em; */
+  border-radius: 5px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.button-hover[type=primary] {
+  color: rgba(255, 255, 255, 0.6);
+  background-color: #179b16;
+}
+
+.button-hover {
+  color: rgba(0, 0, 0, 0.6);
+  background-color: #dedede;
+}
+
+/*六个功能按钮*/

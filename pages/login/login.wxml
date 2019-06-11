@@ -1,3 +1,6 @@
-<i-button type='primary' bind:click='login'>Login</i-button>
-<i-button type='error' bind:click='userLogin'>userLogin</i-button>
-<i-button type='primary' bind:click='choose'>userLogin</i-button>
+<!--pages/login/login.wxml-->
+<form bindsubmit="loginSubmit" report-submit-timeout="10" style='position:absolute;top:25%'>
+<input id="0" placeholder="请输入学号" type='number' bindblur='bindDataU' confirm-type="next"></input>
+<input id="1" placeholder='请输入密码' type='number' bindblur='bindDataP' confirm-type="done" password="true"></input>
+<button form-type="submit">登录</button>
+</form>

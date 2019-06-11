@@ -4,3 +4,5 @@
 <button bindtap='click3'>打卡定位</button>
 <!-- <button bindtap='click4'>打卡地图</button> -->
 <!-- <button bindtap='click5'>打开地图</button> -->
+<button bindtap='click6'>查看打卡范围</button>
+<button bindtap='fanhui'>返回</button>
