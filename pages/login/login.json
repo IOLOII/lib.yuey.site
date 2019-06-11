@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents":{
+    "navigationBar":"/Component/navigationBar/index"
+  },
+  "disableSwipeBack": true
 }

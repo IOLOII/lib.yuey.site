@@ -11,9 +11,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationStyle": "custom",
- 
-    "backgroundColor":"#fff",
-    
+    "navigationBarBackgroundColor": "#000000",
     "navigationBarTitleText": "ONElibrary",
     "navigationBarTextStyle": "white"
   },

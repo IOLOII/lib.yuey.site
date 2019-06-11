@@ -1,1 +1,10 @@
-<web-view src="http://192.168.137.1:8080/yueysite/testPage.site"></web-view>
+<view>
+  <navigationBar id="navigationBar" placeholderBg="" color="{{color}}" title="{{title}}" back="{{true}}" background="{{barBg}}" fixed="{{fixed}}"  backConfirm="{{backConfirm}}"  backStyle="{{backStyle}}"  backEvent="{{backEvent}}" bind:back="backEvent"  backHomeEvent="{{backHomeEvent}}" bind:backHome="backHomeEvent"></navigationBar>
+  <view id="container" bindtouchstart='touchstart' bindtouchmove='touchmove' style='height:200vh;'>
+  	<view style="position:absolute;top:0;left:0;">
+      
+      <web-view src="http://192.168.137.1:8080/yueysite/testPage.site"></web-view>
+
+      </view>
+  </view>
+</view>

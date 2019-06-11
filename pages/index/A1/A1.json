@@ -1,5 +1,8 @@
 {
-  "usingComponents": {
-    "y-article": "../../../Component/article/article"
-  }
+  "usingComponents":{
+    "navigationBar":"/Component/navigationBar/index"
+  },
+  "disableSwipeBack": true,
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black"
 }

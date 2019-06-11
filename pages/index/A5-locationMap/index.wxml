@@ -1,3 +1,14 @@
-<web-view src="http://192.168.137.1:8080/yueysite/location.site"></web-view>
+<view>
+  <navigationBar id="navigationBar" placeholderBg="" color="{{color}}" title="{{title}}" back="{{true}}" background="{{barBg}}" fixed="{{fixed}}"  backConfirm="{{backConfirm}}"  backStyle="{{backStyle}}"  backEvent="{{backEvent}}" bind:back="backEvent"  backHomeEvent="{{backHomeEvent}}" bind:backHome="backHomeEvent"></navigationBar>
+  <view id="container" bindtouchstart='touchstart' bindtouchmove='touchmove' style='height:200vh;'>
+  	<view style="position:absolute;top:15%;left:30%;">
+      
+      <web-view src="http://192.168.137.1:8080/yueysite/location.site"></web-view>
 <!-- <web-view src="http://dgsx.gzpyp.edu.cn/intern/attende!toAttende.action"></web-view> -->
 <!-- <web-view src="http://dgsx.gzpyp.edu.cn/intern/account!toHome.action?jumpAction=account!toAccount.action"></web-view> -->
+      
+      </view>
+  </view>
+</view>
+
+

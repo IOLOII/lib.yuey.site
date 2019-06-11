@@ -1,6 +1,19 @@
-<!--pages/login/login.wxml-->
-<form bindsubmit="loginSubmit" report-submit-timeout="10" style='position:absolute;top:25%'>
+<view>
+  <navigationBar id="navigationBar" placeholderBg="" color="{{color}}" title="{{title}}" back="{{true}}" background="{{barBg}}" fixed="{{fixed}}"  backConfirm="{{backConfirm}}"  backStyle="{{backStyle}}"  backEvent="{{backEvent}}" bind:back="backEvent"  backHomeEvent="{{backHomeEvent}}" bind:backHome="backHomeEvent"></navigationBar>
+  <view id="container" bindtouchstart='touchstart' bindtouchmove='touchmove' style='height:200vh;'>
+  	<view style="position:absolute;top:35%;left:25%;">
+      
+<form bindsubmit="loginSubmit" report-submit-timeout="10">
 <input id="0" placeholder="请输入学号" type='number' bindblur='bindDataU' confirm-type="next"></input>
 <input id="1" placeholder='请输入密码' type='number' bindblur='bindDataP' confirm-type="done" password="true"></input>
 <button form-type="submit">登录</button>
 </form>
+      
+      </view>
+  </view>
+</view>
+
+
+
+
+
