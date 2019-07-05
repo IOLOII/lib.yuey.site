@@ -17,11 +17,11 @@ Page({
     wx.setNavigationBarTitle({
       title: '西区5B与篮球场'
     })
-    console.log(Date.parse(Date()) - 1560207646000);
+    // console.log(Date.parse(Date()) - 1560207646000);
     
-    console.log(options);
+    // console.log(options);
     var obj = {};
-    console.log(obj);
+    // console.log(obj);
     if(options.title){
       obj.title = options.title
     }
@@ -56,7 +56,7 @@ Page({
     if(!this.data.toggleBarShow){
     	return;
     }
-    console.log(this.data.touchStartY - e.changedTouches[0].clientY, e.changedTouches[0].clientY);
+    // console.log(this.data.touchStartY - e.changedTouches[0].clientY, e.changedTouches[0].clientY);
     if ((e.changedTouches[0].clientY - this.data.touchStartY) > 0 && (e.changedTouches[0].clientY - this.data.touchStartY) > 3) {//向上滚动
       this.selectComponent("#navigationBar").toggleShow();
     }

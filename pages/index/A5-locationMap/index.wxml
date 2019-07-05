@@ -3,7 +3,7 @@
   <view id="container" bindtouchstart='touchstart' bindtouchmove='touchmove' style='height:200vh;'>
   	<view style="position:absolute;top:15%;left:30%;">
       
-      <web-view src="http://192.168.137.1:8080/yueysite/location.site"></web-view>
+      <web-view style="width:100rpx;height:100rpx" src="https://lib.yuey.site/location"></web-view>
 <!-- <web-view src="http://dgsx.gzpyp.edu.cn/intern/attende!toAttende.action"></web-view> -->
 <!-- <web-view src="http://dgsx.gzpyp.edu.cn/intern/account!toHome.action?jumpAction=account!toAccount.action"></web-view> -->
       

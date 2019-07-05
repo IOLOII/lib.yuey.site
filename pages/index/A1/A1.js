@@ -14,13 +14,7 @@ Page({
     backHomeEvent: false
   },
   onLoad: function (options) {
-    // wx.setNavigationBarColor({
-    //   frontColor: '#ffffff', // 必写项
-    //   backgroundColor: '#ffffff', // 必写项
-    // })
-    console.log(options);
     var obj = {};
-    console.log(obj);
     if(options.title){
       obj.title = options.title
     }
@@ -55,7 +49,7 @@ Page({
     if(!this.data.toggleBarShow){
     	return;
     }
-    console.log(this.data.touchStartY - e.changedTouches[0].clientY, e.changedTouches[0].clientY);
+    // console.log(this.data.touchStartY - e.changedTouches[0].clientY, e.changedTouches[0].clientY);
     if ((e.changedTouches[0].clientY - this.data.touchStartY) > 0 && (e.changedTouches[0].clientY - this.data.touchStartY) > 3) {//向上滚动
       this.selectComponent("#navigationBar").toggleShow();
     }

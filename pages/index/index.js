@@ -13,8 +13,8 @@ Page({
     // userlogin: "userlogin",
     // hasPermission:false,
     buttonStatu: "学号登录",
-    loginS:true,
-    RPX:65
+    loginS: true,
+    RPX: 65
   },
 
   //事件处理函数
@@ -26,42 +26,42 @@ Page({
   },
 
   onLoad: function(options) {
-    console.log(wx.getStorageSync("loginStatu"))
-    console.log(app.globalData.stuInfo)
+    // console.log(wx.getStorageSync("loginStatu"))
+    // console.log(app.globalData.stuInfo)
     var that = this;
     /**
      * 登录校验模块
      */
     if (app.globalData.stuInfo.login) {
-      console.log("可以")
+      // console.log("可以")
       that.setData({
         user_no: app.globalData.stuInfo.user_id,
         user_name: app.globalData.stuInfo.user_name,
         // userlogin: "loginOut",
         'app.globalData.hasPermission': true,
-        loginS:true,
-        buttonStatus: "已登錄",
-        RPX:0
+        loginS: true,
+        buttonStatu: "已登录",
+        RPX: 0
       })
     } else {
       if (wx.getStorageSync("loginStatu")) {
         that.setData({
           // userlogin:'loginOut',
           'app.globalData.hasPermission': wx.getStorageSync("sessionValid"),
-          user_no:wx.getStorageSync("user_id"),
-          user_name:wx.getStorageSync("user_name"),
-          loginS:true,
+          user_no: wx.getStorageSync("user_id"),
+          user_name: wx.getStorageSync("user_name"),
+          loginS: true,
           buttonStatu: "已登录",
-          RPX:0
+          RPX: 0
         })
       } else {
-        console.log("不可以")
+        // console.log("不可以")
         that.setData({
           // userlogin:'userlogin',
           'app.globalData.hasPermission': false,
-          loginS:false,
-          buttonStatu:"学号登录",
-          RPX:65
+          loginS: false,
+          buttonStatu: "学号登录",
+          RPX: 65
         })
       }
     }
@@ -99,7 +99,7 @@ Page({
     // let array = this.data.array;
     // let ress = this.data.ress;
     wx.request({
-      url: 'http://192.168.137.1:8080/yueysite/menu.site?level=1',
+      url: 'https://lib.yuey.site/menu?level=1',
       data: '',
       header: {
         'content-type': 'application/json'
@@ -108,11 +108,14 @@ Page({
       dataType: 'json',
       responseType: 'text',
       success: function(res) {
-        for (var i = 0; i <= res.data.length - 1; i++) {
-          let menua = "menu[" + i + "]";
-          that.setData({
-            [menua]: res.data[i]
-          })
+        if (res.data["0"].statu){
+          for (var i = 0; i <= res.data.length - 2; i++) {
+            let menua = "menu[" + i + "]";
+            that.setData({
+              [menua]: res.data[i+1]
+            })
+            // console.log(res.data[i + 1]);
+          }
         };
       },
       fail: function(res) {},
@@ -131,31 +134,31 @@ Page({
   userlogin: function(res) {
     var that = this;
     // console.log(app.getUserInfo.login)
-    if(wx.getStorageSync("loginStatu")){
+    if (wx.getStorageSync("loginStatu")) {
       wx.showModal({
         content: '确定退出？',
         showCancel: true,
         cancelText: '返回',
         confirmText: '退出',
         success: function(res) {
-          console.log(res)
-          if(res.confirm){
+          // times.log(res)
+          if (res.confirm) {
             wx.removeStorageSync("user_id")
             wx.removeStorageSync("user_name")
             wx.removeStorageSync("loginStatu")
             that.setData({
-              buttonStatu:"学号登录",
-              loginS:false,
-              user_no:"",
-              user_name:"",
-              RPX:65
+              buttonStatu: "学号登录",
+              loginS: false,
+              user_no: "",
+              user_name: "",
+              RPX: 65
             })
           }
         },
         fail: function(res) {},
         complete: function(res) {},
       })
-    }else{
+    } else {
       wx.navigateTo({
         url: '../login/login',
         success: function(res) {},

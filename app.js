@@ -43,8 +43,8 @@ App({
     userInfo: null,
     hasPermission: true,
     stuInfo: {
-      // user_id: 1613240105,
-      // user_name: "胡悦迎"
+      user_id: "",
+      user_name: ""
     }
   }
 })

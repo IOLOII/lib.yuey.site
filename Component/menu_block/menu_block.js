@@ -38,7 +38,7 @@ Component({
       // if(too=="true"){
         wx.navigateTo({
           url: url,
-          fail: function (res) { console.log(res) }
+          // fail: function (res) { }
         })
       // }else{
       //   console.log("无权访问")

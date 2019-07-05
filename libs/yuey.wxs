@@ -1,3 +1,5 @@
+// 登录未用此模块，因为代码更新在util中
+
 // 登录成功后返回session、cookie
 // 将所需要的存储  wx.setStorageSync(key,value)
 

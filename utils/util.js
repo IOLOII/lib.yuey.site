@@ -109,8 +109,8 @@ var saveStorage = function (sessionKey, sessionValue) {
 // 清除session
 var removeLocalSession = function () {
   wx.removeStorageSync("sessionKey");
-  wx.removeStorageSync("sessionDate");
-  console.log("remove success!")
+  // wx.removeStorageSync("sessionDate");
+  // console.log("remove success!")
 }
 
 // 检查是否过期

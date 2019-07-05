@@ -3,7 +3,7 @@
   <view id="container" bindtouchstart='touchstart' bindtouchmove='touchmove' style='height:200vh;'>
   	<view style="position:absolute;top:0;left:0;">
       
-      <web-view src="http://192.168.137.1:8080/yueysite/testPage.site"></web-view>
+      <web-view src="https://lib.yuey.site/testPage"></web-view>
 
       </view>
   </view>

@@ -195,12 +195,12 @@ Page({
 
 
   click6:function(){
-wx.navigateTo({
-  url: '../A5-locationMap/index',
-  success: function(res) {},
-  fail: function(res) {},
-  complete: function(res) {},
-})
+    wx.navigateTo({
+      url: '../A5-locationMap/index',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
   },
 
   fanhui:function(){
@@ -215,9 +215,9 @@ wx.navigateTo({
     //   frontColor: '#ffffff', // 必写项
     //   backgroundColor: '#ffffff', // 必写项
     // })
-    console.log(options);
+    // console.log(options);
     var obj = {};
-    console.log(obj);
+    // console.log(obj);
     if(options.title){
       obj.title = options.title
     }

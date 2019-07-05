@@ -144,7 +144,7 @@ Component({
       showHomeButton: showHomeButton,
       navigationBarTextStyle: navigationBarTextStyle
     })
-    console.log(this);
+    // console.log(this);
   },
   methods: {
     // 这里是一个自定义方法

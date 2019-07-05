@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -14,7 +14,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.7.1",
-	"appid": "wx7f6934cacff583c0",
+	"appid": "wx20b94e39d06b6f73",
 	"projectname": "ONElibrary",
 	"debugOptions": {
 		"hidedInDevtools": []
