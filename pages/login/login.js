@@ -34,7 +34,6 @@ Page({
    */
   loginSubmit: function(res) {
     var that = this;
-    // console.log(res)
     wx.request({
       url: 'https://lib.yuey.site/wxlogin4',
       data: this.data.user,
@@ -53,9 +52,6 @@ Page({
           wx.reLaunch({
             // url: '../index/index?stuIn=' + res.data["0"],
             url: '../index/index',
-            success: function(res) {},
-            fail: function(res) {},
-            complete: function(res) {},
           })
         } else {
           wx.showModal({
@@ -65,10 +61,8 @@ Page({
             cancelText: '',
             cancelColor: '',
             confirmText: '重新登录',
-            confirmColor: "red",
-            success: function(res) {},
-            fail: function(res) {},
-            complete: function(res) {},
+            confirmColor: "#EF4B4C",
+            success: function(_res) { },
           })
         }
       }
@@ -88,5 +82,6 @@ Page({
     })
     // console.log(this.data.user2)
     // console.log(this.data.user)
+    this.loginSubmit();
   }
 })

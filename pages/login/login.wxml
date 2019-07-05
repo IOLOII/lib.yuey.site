@@ -4,8 +4,8 @@
   	<view style="position:absolute;top:35%;left:25%;">
       
 <form bindsubmit="loginSubmit" report-submit-timeout="10">
-<input id="0" placeholder="请输入学号" type='number' bindblur='bindDataU' confirm-type="next"></input>
-<input id="1" placeholder='请输入密码' type='number' bindblur='bindDataP' confirm-type="done" password="true"></input>
+<input id="0" placeholder="请输入学号" type='number' bindblur='bindDataU' focus="true" type='number'></input>
+<input id="1" placeholder='请输入密码' type='number' bindblur='bindDataP' type='number' password="true"></input>
 <button form-type="submit">登录</button>
 </form>
       

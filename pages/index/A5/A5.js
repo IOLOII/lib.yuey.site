@@ -188,7 +188,17 @@ Page({
         // console.log(res.data.data.fencing_event_list["0"].fence_info.fence_name)
         // console.log(res.data.data.fencing_event_list["0"].enter_time)
       },
-      fail: function(res) {},
+      fail: function(res) {
+        wx.showModal({
+          title: '',
+          content: '失败,'+'服务器出现问题：' + res,
+          showCancel: false,
+          cancelText: '',
+          cancelColor: '',
+          confirmText: '确认眼神',
+          confirmColor: '',
+        })
+      },
       complete: function(res) {},
     })
   },
