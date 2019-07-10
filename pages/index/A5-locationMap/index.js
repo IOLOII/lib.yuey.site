@@ -3,8 +3,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    title: '子页面',
-    barBg: '#ffffff',//#ff6600
+    title: '打卡签到',
+    // barBg: '#ffffff',//#ff6600
     fixed: true,
     color: '#000000',//#ffffff
     touchStartY: 0,//触摸开始的Y坐标

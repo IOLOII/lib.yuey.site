@@ -1,16 +1,17 @@
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    locs: "data中的locs",
+    locs: "",
 
     //导航栏
-    title: '子页面',
-    barBg: '#ffffff',
+    title: '打卡签到',
+    // barBg: '#ffffff',
     fixed: true,
-    color: '#000000',
+    // color: '#000000',
     touchStartY: 0,//触摸开始的Y坐标
     toggleBarShow: false,
     backStyle: 'normal',
@@ -29,7 +30,6 @@ Page({
    */
   getLocation: function() {
     var that = this;
-    // console.log(this.data.conttxt[1])
     var loc = [];
     var locs = this.data.locs;
     wx.getLocation({
@@ -39,34 +39,39 @@ Page({
         loc.push(res.longitude);
         loc.push(res.latitude);
         locs = loc.toString();
-        locs = locs + ",1559577106"
+        let timestamp = Date.parse(new Date());
+        let t = timestamp.toString()
+        locs = locs + ","+t
         that.setData({
           locs: locs
         })
-        // console.log(locs)
-        // console.log(that.data.locs)
-        // console.log(this)
+
+        var date = new Date(timestamp);
+        //年  
+        var Y = date.getFullYear();
+        //月  
+        var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
+        //日  
+        var D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
+        //时  
+        var h = date.getHours();
+        //分  
+        var m = date.getMinutes();
+        //秒  
+        var s = date.getSeconds();
         wx.showModal({
           title: '定位提醒',
-          content: "当前经度：" + res.longitude + "\n" + "当前纬度" + res.latitude,
+          content: "当前经度：" + res.longitude + "当前纬度" + res.latitude + "当前时间：" + Y + "年" + M + "月" + D + "日"+ h + ":" + m + ":" + s,
           showCancel: true,
           cancelText: '取消',
           cancelColor: '',
-          confirmText: '确认眼神',
+          confirmText: '确认',
           confirmColor: '',
-          success: function(res) {
-            // if (res.confirm) {
-            //   console.log('用户点击确定')
-            // } else if (res.cancel) {
-            //   console.log('用户点击取消')
-            // }
-          },
+          success: function(res) {},
           fail: function(res) {},
           complete: function(res) {},
         })
       },
-      fail: function(res) {},
-      complete: function(res) {},
     })
   },
 
@@ -107,100 +112,142 @@ Page({
   click3: function() {
     var that = this;
     var loc = this.data.locs;
-    // var loc = "113.305238,22.906253,1559577106";
-    // console.log(this.data.locs);
-    // console.log(loc);
-    wx.request({
-      url: 'https://restapi.amap.com/v4/geofence/status',
-      data: {
-        "key": "5cb4f298bd87f8a5b9da3f6f80a96a9f",
-        "diu": 863081030701227,
-        "locations": loc
-      },
-      header: {},
-      method: 'GET',
-      dataType: 'json',
-      responseType: 'text',
-      success: function(res) {
-        // console.log("locs:" + that.data.locs)
-        // console.log(res);
-
-        if (res.data.errcode == 0) {
-          if (res.data.data.fencing_event_list.length !== 0) {
-            // console.log("打卡进入判断")
-            if (res.data.data.fencing_event_list["0"].client_status == "in") {
-              // console.log("打卡成功")
-              wx.showModal({
-                title: '提示',
-                content: '定位打卡成功',
-                showCancel: false,
-                cancelText: '',
-                cancelColor: '',
-                confirmText: '确认眼神',
-                confirmColor: '',
-                success: function(res) {},
-                fail: function(res) {},
-                complete: function(res) {},
-              })
-            } else {
-              wx.showModal({
-                title: '提示',
-                content: '定位打卡失败请重新定位',
-                showCancel: false,
-                cancelText: '',
-                cancelColor: '',
-                confirmText: '确认眼神',
-                confirmColor: '',
-                success: function(res) {},
-                fail: function(res) {},
-                complete: function(res) {},
-              })
-            }
-          } else {
-            wx.showModal({
-              title: '提示',
-              content: '定位打卡失败，请到指定打开地点打卡',
-              showCancel: false,
-              cancelText: '',
-              cancelColor: '',
-              confirmText: '确认眼神',
-              confirmColor: '',
-              success: function(res) {},
-              fail: function(res) {},
-              complete: function(res) {},
-            })
-          }
-        } else {
+    // wx.request({
+    //   url: 'https://restapi.amap.com/v4/geofence/status',
+    //   data: {
+    //     "key": "5cb4f298bd87f8a5b9da3f6f80a96a9f",
+    //     "diu": 863081030701227,
+    //     "locations": loc
+    //   },
+    //   header: {},
+    //   method: 'GET',
+    //   dataType: 'json',
+    //   responseType: 'text',
+    //   success: function(res) {
+    //     if (res.data.errcode == 0) {
+    //       if (res.data.data.fencing_event_list.length !== 0) {
+    //         // console.log("打卡进入判断")
+    //         if (res.data.data.fencing_event_list["0"].client_status == "in") {
+    //           // console.log("打卡成功")
+    //           wx.showModal({
+    //             title: '提示',
+    //             content: '定位打卡成功',
+    //             showCancel: false,
+    //             cancelText: '',
+    //             cancelColor: '',
+    //             confirmText: '确认眼神',
+    //             confirmColor: '',
+    //             success: function(res) {},
+    //             fail: function(res) {},
+    //             complete: function(res) {},
+    //           })
+    //         } else {
+    //           wx.showModal({
+    //             title: '提示',
+    //             content: '定位打卡失败请重新定位',
+    //             showCancel: false,
+    //             cancelText: '',
+    //             cancelColor: '',
+    //             confirmText: '确认眼神',
+    //             confirmColor: '',
+    //             success: function(res) {},
+    //             fail: function(res) {},
+    //             complete: function(res) {},
+    //           })
+    //         }
+    //       } else {
+    //         wx.showModal({
+    //           title: '提示',
+    //           content: '定位打卡失败，请到指定打开地点打卡',
+    //           showCancel: false,
+    //           cancelText: '',
+    //           cancelColor: '',
+    //           confirmText: '确认眼神',
+    //           confirmColor: '',
+    //           success: function(res) {},
+    //           fail: function(res) {},
+    //           complete: function(res) {},
+    //         })
+    //       }
+    //     } else {
+    //       wx.showModal({
+    //         title: '提示',
+    //         content: '参数非法！请先取得定位值',
+    //         showCancel: false,
+    //         cancelText: '',
+    //         cancelColor: '',
+    //         confirmText: '确认眼神',
+    //         confirmColor: '',
+    //         success: function(res) {},
+    //         fail: function(res) {},
+    //         complete: function(res) {},
+    //       })
+    //     }
+    //   },
+    //   fail: function(res) {
+    //     wx.showModal({
+    //       title: '',
+    //       content: '失败,'+'服务器出现问题：' + res,
+    //       showCancel: false,
+    //       cancelText: '',
+    //       cancelColor: '',
+    //       confirmText: '确认眼神',
+    //       confirmColor: '',
+    //     })
+    //   },
+    //   complete: function(res) {},
+    // })
+    // console.log(app.globalData.stuInfo.login);
+    console.log(wx.getStorageSync("loginStatu"))
+    if (wx.getStorageSync("loginStatu") && loc !=""){
+      wx.request({
+        url: 'http://127.0.0.1:8080/yueysite/checkLocation',
+        data: { "locations": loc },
+        header: {},
+        method: 'GET',
+        dataType: 'json',
+        responseType: 'text',
+        success: function (res) {
+          console.log(res.data)
           wx.showModal({
-            title: '提示',
-            content: '参数非法！请先取得定位值',
+            title: '',
+            content: res.data,
             showCancel: false,
             cancelText: '',
             cancelColor: '',
-            confirmText: '确认眼神',
+            confirmText: '确认',
             confirmColor: '',
-            success: function(res) {},
-            fail: function(res) {},
-            complete: function(res) {},
+            success: function (res) { },
+            fail: function (res) { },
+            complete: function (res) { },
           })
-        }
-
-        // console.log(res.data.data.fencing_event_list["0"].fence_info.fence_name)
-        // console.log(res.data.data.fencing_event_list["0"].enter_time)
-      },
-      fail: function(res) {
-        wx.showModal({
-          title: '',
-          content: '失败,'+'服务器出现问题：' + res,
-          showCancel: false,
-          cancelText: '',
-          cancelColor: '',
-          confirmText: '确认眼神',
-          confirmColor: '',
-        })
-      },
-      complete: function(res) {},
-    })
+        },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    }else{    
+      wx.showModal({
+        title: '',
+        content: '请先定位（如未登录请先登录）',
+        showCancel: true,
+        cancelText: '前往登录',
+        cancelColor: '',
+        confirmText: '确认',
+        confirmColor: '',
+        success: function (res) {
+          if (!res.confirm) {
+            wx.reLaunch({
+              url: '../../login/login' + '?yueypage=loc',
+              success: function (res) { },
+              fail: function (res) { },
+              complete: function (res) { },
+            })
+          }
+        },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    }
   },
 
 
@@ -221,11 +268,6 @@ Page({
 
   //导航栏
   onLoad: function (options) {
-    // wx.setNavigationBarColor({
-    //   frontColor: '#ffffff', // 必写项
-    //   backgroundColor: '#ffffff', // 必写项
-    // })
-    // console.log(options);
     var obj = {};
     // console.log(obj);
     if(options.title){

@@ -33,10 +33,6 @@ App({
         }
       }
     })
-
-
-     
-
   },
 
   globalData: {
@@ -44,7 +40,9 @@ App({
     hasPermission: true,
     stuInfo: {
       user_id: "",
-      user_name: ""
-    }
+      user_name: "",
+      // login:false
+    },
+    yueypage:""
   }
 })

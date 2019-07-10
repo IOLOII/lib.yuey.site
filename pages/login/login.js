@@ -26,8 +26,10 @@ Page({
     backHomeEvent: false
   },
 
-  onLoad: function() {
-
+  onLoad: function (options) {
+    if (options.yueypage){
+      app.globalData.yueypage = options.yueypage;
+    }
   },
   /* 账号密码登录 POST到后台 返回知否具有权限访问其他功能（如果今后需要管理员，可跟
    * 据设置返回权限代码，更改haspermission类型
@@ -49,10 +51,20 @@ Page({
           yuey.saveStorage("user_id", app.globalData.stuInfo.user_id);
           yuey.saveStorage("user_name", app.globalData.stuInfo.user_name);
           yuey.saveStorage("loginStatu", app.globalData.stuInfo.login);
-          wx.reLaunch({
-            // url: '../index/index?stuIn=' + res.data["0"],
-            url: '../index/index',
+          that.setData({
+            'app.globalData.stuInfo.login':true
           })
+          if (app.globalData.yueypage == "" || app.globalData.yueypage == "index"){
+            wx.reLaunch({
+              // url: '../index/index?stuIn=' + res.data["0"],
+              url: '../index/index',
+            })
+          } else if (app.globalData.yueypage == "loc"){            
+            wx.reLaunch({
+              // url: '../index/index?stuIn=' + res.data["0"],
+              url: '../index/A5/A5',
+            })
+          }
         } else {
           wx.showModal({
             title: '',

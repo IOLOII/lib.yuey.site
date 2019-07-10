@@ -1,7 +1,7 @@
 //index.js
 //获取应用实例
-const app = getApp()
-var yuey = require('../../utils/util.js')
+const app = getApp();
+var yuey = require('../../utils/util.js');
 
 Page({
   data: {
@@ -118,8 +118,25 @@ Page({
           }
         };
       },
-      fail: function(res) {},
-      complete: function(res) {},
+      fail: function(res) {
+        wx.showModal({
+          title: '服务器error',
+          content: '请重试(原因：无法获取列表）',
+          showCancel: false,
+          cancelText: '',
+          cancelColor: '',
+          confirmText: 'ok',
+          confirmColor: '',
+          success: function (res) {
+            wx.reLaunch({
+              url: 'index',
+              success: function (res) { },
+              fail: function (res) { },
+              complete: function (res) { },
+            })
+          },
+        }) 
+      },
     })
   },
   /* 获取微信个人信息 */
