@@ -24,6 +24,6 @@ https://github.com/viphuyy/lib.yuey.site_server
 -----------------------------------------------2019.7.12-----------------------------------------------------------------   
 聊天模块：
 增加
-<img src="http://yuey.site/wp-content/uploads/2019/07/X9JPH3LWF289B338ZEKS-e1562873784700.png" width="150" height="230">
+<img src="http://yuey.site/wp-content/uploads/2019/07/X9JPH3LWF289B338ZEKS-e1562873784700.png" height="430">
 使用起来勾选方框，功能用途：将其视为参数传递至后台（或请求的controller），后台调用图书馆查询书籍的api，返回数据在前端（弹窗显示？）
 使用起来不会过于累赘，且与聊天模块整合丰富功能，使用起来也类似书籍组手
