@@ -25,4 +25,4 @@ https://github.com/viphuyy/lib.yuey.site_server
 聊天模块：
 增加
 
-![avatar](http://yuey.site/wp-content/uploads/2019/07/X9JPH3LWF289B338ZEKS.png)
+![avatar](http://yuey.site/wp-content/uploads/2019/07/X9JPH3LWF289B338ZEKS-e1562873784700.png)
