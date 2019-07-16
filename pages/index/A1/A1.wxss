@@ -1,4 +1,4 @@
 /* pages/index/A1/A1.wxss */
 web-view{
-  margin: 20px;
+  margin: 40rpx;
 }

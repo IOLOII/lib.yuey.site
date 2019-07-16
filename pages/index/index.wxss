@@ -5,6 +5,8 @@ page {
   /* margin-left: 0 30rpx 0;
   width: 690rpx;
   background-image: '../../image/blue.jpg'; */
+  /* width: 350rpx;
+  height: 750rpx; */
 }
 
 .userinfo-avatar {
@@ -21,7 +23,7 @@ page {
   /* font-size: 0.8em; */
   color: rgb(7, 7, 7);
   display: table-header-group;
-  margin-top: 0px;
+  margin-top: 0rpx;
   font-size: 50rpx;
   /* border: solid RED 0.1PX; */
   text-align:center;
@@ -34,7 +36,7 @@ page {
   color: rgb(116, 112, 112);
   display: table-footer-group;
   /* border: solid RED 0.1PX; */
-  margin-top: 0px;
+  margin-top: 0rpx;
   /* position:absolute;
   left:188rpx;
   top:80rpx; */
@@ -47,10 +49,13 @@ page {
 /* z-index: 2; */
   background: white;
   border-radius:20rpx; 
-  height: 249rpx;
+  height: 250rpx;
   /*button 在一起 135rpx*/
-box-shadow: 0rpx 2rpx 3rpx 3rpx rgb(168, 221, 186);
-  margin: 40% 0 20rpx 26.25rpx;
+  box-shadow: 0rpx 2rpx 3rpx 3rpx rgb(168, 221, 186);
+/* border: solid 1rpx red; */
+  /* margin: 300rpx 0 20rpx 26.25rpx; */
+  margin-top: 300rpx;
+  margin-left: 53rpx;
 }
 
 .user_block {
@@ -84,7 +89,7 @@ box-shadow: 0rpx 2rpx 3rpx 3rpx rgb(168, 221, 186);
   /* line-height: 2.3; */
   font-size: 25rpx;
   /* padding: 0 1.34em; */
-  border-radius: 5px;
+  border-radius: 10rpx;
   position: relative;
   text-align: center;
   text-decoration: none;
@@ -102,3 +107,34 @@ box-shadow: 0rpx 2rpx 3rpx 3rpx rgb(168, 221, 186);
 }
 
 /*六个功能按钮*/
+
+
+.socket-block{
+  border: solid #7CCD7C 1rpx;
+  /* bottom: 0; */
+  /* height: 503rpx; */
+  background-color: #FFFFFF;
+  color: #292929;
+  /* position: flex; */
+  /* margin-top:250rpx; */
+  /* margin-top: 252rpx;再加10 */
+  width: 644rpx;
+  /* margin-left: 53rpx; */
+border-radius:10rpx; 
+font-size: 16px;
+}
+
+.socket-cont{
+  height:415rpx
+
+}
+.socket-inp{
+  background:yellow;
+  height:87rpx;
+  border-bottom-right-radius:10rpx;  
+  border-bottom-left-radius:10rpx; 
+  /* padding-left: 20rpx; */
+  width: 644rpx;
+  /* justify-content:center; */
+  align-content: center;
+}

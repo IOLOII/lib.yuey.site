@@ -52,7 +52,7 @@
   border-color: rgba(255, 255, 255, 0.25) !important;
 }
 .style-normal{
-  border: 1rpx solid #ededed;
+  /* border: 1rpx solid #ededed; */
   border-radius: 32rpx;
   height: 64rpx;
   width: 176rpx;
@@ -73,7 +73,7 @@
 }
 .style-normal .back-home:before { content: "\e7c6";}
 .style-normal .split{
-  border-left: 1rpx solid #e5e5e5;
+  /* border-left: 1rpx solid #e5e5e5; */
   height: 32rpx;
   width: 1rpx;
 }

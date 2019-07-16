@@ -37,7 +37,7 @@ Page({
   loginSubmit: function(res) {
     var that = this;
     wx.request({
-      url: 'https://lib.yuey.site/wxlogin4',
+      url: app.globalData.yueyurl+'/wxlogin4',
       data: this.data.user,
       header: {
         'content-type': 'application/json'

@@ -1,32 +1,59 @@
 <!--个人信息-->
-<!-- <view style='widh:750rpx;height:700rpx;margin:0;'> -->
-<!--这是整个page-->
-<view >
-<image src='/images/629bd3a566ff476aaec218c8e0590705.jpg' 
-        style='height:464rpx;width:750rpx;margin:0;z-index:-1;position: absolute;top:-50rpx'></image>
-<view style='margin:0 30rpx 0'>
-<button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" style='margin:40% 0 10%; color:white;border-color:#b7cdb1;' plain="true"> 微信授权 </button>
-<block wx:else style="border: solid RED 0.1PX;">
-  <view class='card'>
-    <!-- <view class="user_block"> -->
-      <view class='user_view'>
-        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-        <view>
-          <!--包含姓名 学号 button-->
-          <!-- <view style='margin:auto 0'> --><!--修改按钮高度-->
-          <text class="userinfo-nickname" style='margin:0px;'>{{user_name}}</text>
-          <text class="user-no" style='margin:0px;'>{{user_no}}</text>
-          <button  type="primary" bindtap="userlogin" style="width:158rpx ;margin-top:{{RPX}}rpx;" >{{buttonStatu}}</button>
+<!-- <view style='widh:750rpx;height:700rpx;margin:0;'>overflow:hidden;height:50rpx; -->
+<view>
+  <!--这是整个page-->
+  <view style='position: {{card_position}};'>
+    <image src='/images/629bd3a566ff476aaec218c8e0590705.jpg' style='height:464rpx;width:750rpx;margin:0;z-index:-1;position: absolute;top:-50rpx;'></image>
+    <view>
+      <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" style='margin:40% 0 10%; color:white;border-color:#b7cdb1;' plain="true"> 微信授权 </button>
+      <block wx:else style="border: solid RED 0.1PX;">
+        <view class='card'>
+          <!-- <view class="user_block"> -->
+          <view class='user_view'>
+            <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+            <view>
+              <!--包含姓名 学号 button-->
+              <!-- <view style='margin:auto 0'> -->
+              <!--修改按钮高度-->
+              <text class="userinfo-nickname" style='margin:0rpx;'>{{user_name}}</text>
+              <text class="user-no" style='margin:0rpx;'>{{user_no}}</text>
+              <button type="primary" bindtap="userlogin" style="width:158rpx ;margin-top:{{RPX}}rpx;">{{buttonStatu}}</button>
+              <!-- </view> -->
+            </view>
+          </view>
           <!-- </view> -->
         </view>
-      </view>
-    <!-- </view> -->
+      </block>
+    </view>
   </view>
-</block>
-</view>
-</view>
-<view style='width:100%'>
-<block  wx:for="{{menu}}" style="width:100%" >
-  <y-view yview_tx="{{item.catalago}}" yicon_type="{{item.icon}}" yicon_size='24px' y_url="{{item.url}}" y_to="{{true}}" bindtap='bindViewTap' ></y-view>
-</block >
+
+  <view style='width:100%;'>
+    <block wx:for="{{menu}}" wx:for-item="item" wx:key="key" style="width:100%">
+      <y-view yview_tx="{{item.catalago}}" yicon_type="{{item.icon}}" yicon_size='48rpx' y_url="{{item.url}}" y_to="{{true}}" bindtap='bindViewTap'></y-view>
+    </block>
+  </view>
+
+
+<!-- margin-top =0 card最外层position设置为absolute -->
+  <view class='socket-block' style='margin-top:{{socketTop}}rpx;z-index:9;position:absolute;height: {{socket_height}};margin-left:{{margin_left}}rpx;width:{{socket_width}}'>
+    <scroll-view class='socket-cont' scroll-y style='overflow:hidden;height:{{socket_cont}}'>
+      聊天内容展示框 40%*750-137+20+156=
+      <!-- 256+137/2=324
+137 -->
+      63*2+10*3=156(两格子) 324+156=480 289刚刚好 232 124 425是card与bg的高度 因此这栏距离上方 63*4=252 667-252 下面是底部button
+      聊天内容展示框 40%*750-137+20+156=
+      <!-- 256+137/2=324
+137 -->
+      63*2+10*3=156(两格子) 324+156=480 289刚刚好 232 124 425是card与bg的高度 因此这栏距离上方 63*4=252 667-252 下面是底部button
+      聊天内容展示框 40%*750-137+20+156=
+      <!-- 256+137/2=324
+137 -->
+      63*2+10*3=156(两格子) 324+156=480 289刚刚好 232 124 425是card与bg的高度 因此这栏距离上方 63*4=252 667-252 下面是底部button
+    </scroll-view>
+    <view style='position: fixed;'style='width:{{socket_width}}'>
+      <input class='socket-inp' type="text" bindblur="send" bindfocus='socket_focus' style='width:{{socket_width}}'>输入</input>
+      <!-- bindconfirm -->
+      <!-- <button type='submit' style='height:87rpx;width:160rpx;margin:0;padding:0;'>发送</button> -->
+    </view>
+  </view>
 </view>

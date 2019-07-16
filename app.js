@@ -6,6 +6,15 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
+/**
+ * 获取当前设备
+ */
+    // var phone = wx.getSystemInfoSync().model // 获取当前采用的设备
+    // this.setData({
+      // console.log(phone);
+    // })
+
+/* 因设备诸多尺寸，因此暂不考虑机型，所有模块宽高尺寸不做百分百设计 */
 
     // 登录
     wx.login({
@@ -43,6 +52,8 @@ App({
       user_name: "",
       // login:false
     },
-    yueypage:""
+    yueypage:"",
+    yueyurl:"https://lib.yuey.site",
+    // phone:"iPhone 6 Plus"
   }
 })
